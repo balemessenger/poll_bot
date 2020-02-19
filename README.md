@@ -13,7 +13,7 @@ Repository [https://github.com/balemessenger/poll_bot/](https://github.com/balem
 
 ## Setup and Run
 ```
-docker build -it polling:0.0.0 .
+docker build -it poll_bot:0.0.0 .
 docker-compose up
 
 ```
