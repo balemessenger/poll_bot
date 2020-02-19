@@ -1,0 +1,32 @@
+version: '3'
+services:
+  postgres_poll_bot:
+    image: postgres
+    container_name: postgres_poll_bot
+    environment:
+      - POSTGRES_USER=poll_bot
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=poll
+      - TZ=Asia/Tehran
+    ports:
+      - 5864:5432
+    volumes:
+      - /home/docker/volumes/poll/postgres/:/var/lib/postgresql/data/
+  
+
+  poll_bot:
+    image: poll_bot:0.0.0
+    container_name: poll_bot
+    restart: always
+    environment:
+      - TOKEN={token}
+      # SQL Config
+      - POSTGRES_USER=poll_bot
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=poll
+      - POSTGRES_PORT=5432
+      - POSTGRES_HOST=postgres_poll_bot
+      - SUPPORTED_USERS=USERID_OF_SUPPORT
+
+    depends_on:
+    - postgres_poll_bot
