@@ -24,4 +24,4 @@ python3.7 polling_bot/main.py
 ```
 
 # License
-This project is protected by the MIT License. More details can be found in the included LICENSE file.
+This project is protected by the Apache License. More details can be found in the included LICENSE file.
